@@ -3,14 +3,15 @@
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<title>LocalQuerys</title>
+<title>Mis Consultas</title>
 
 </head>
 
 
 <body>
 
-<?//include_once('../testdbconnection.php');?>
+<?php// include_once('../testdbconnection.php');?>
+
 <?include_once('index2.php'); ?>
 <?include 'consultaTotalElementos.php'; ?>
 
@@ -97,13 +98,15 @@
 			$usuario = qryObtenerUsuario();
 			// $row = count($usuario);
 			$result = mysql_query("SELECT * from tbUsuario;");
-					var_dump($usuario[0]);
-					var_dump($usuario[1]);
-					var_dump($usuario[2]);
-					var_dump($usuario[3]);
-					var_dump($usuario[4]);
+
+			// 		var_dump($usuario[0]);
+			// 		var_dump($usuario[1]);
+			// 		var_dump($usuario[2]);
+			// 		var_dump($usuario[3]);
+			// 		var_dump($usuario[4]);
 
 			while ($fila= mysql_fetch_array($result)) {
+				// while ($fila= mysql_fetch_assoc($result)) {
             //while ($fila = ObtenerUsuario(qryObtenerUsuario())) {
             ?>
                 <tr>
@@ -115,6 +118,7 @@
 					<td><?php echo $fila[11]; ?></td>
            
                 </tr>
+
                 <?php
 					
                 	$contador++;
@@ -129,7 +133,7 @@
 		</table>
 
 		<br><br>
-		Fin de la partida. GAME OVER!
+		Mis consultas. 💻 Hecho con ❤ 
 
 		<br><br> 
 

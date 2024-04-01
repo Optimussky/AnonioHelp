@@ -35,8 +35,8 @@ function obtenerTotalUsuarios($totalUsuarios){
 
 function qryObtenerUsuario(){
 	$tableUsuario = "tbUsuario";
-	$result = mysql_query("SELECT idSector,nombre,usuario,clave,idNivel from $tableUsuario;");
-	$usuario = mysql_fetch_array($result);
+	$consulta_usuario = mysql_query("SELECT idSector,nombre,usuario,clave,idNivel from $tableUsuario;");
+	$usuario = mysql_fetch_array($consulta_usuario);
 	$cuenta = count($usuario);
 	//echo "Largo de Array ".$cuenta;
 	//echo var_dump($cuenta);
@@ -64,8 +64,8 @@ function qryTotalElementosT1(){
 	$fecha = mostrarFecha();
 	$tableFatiga = "tbFatiga";
 
-	$result = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=1;");
-	$total= mysql_fetch_array($result);
+	$consulta_contar_total_t1 = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=1;");
+	$total= mysql_fetch_array($consulta_contar_total_t1);
 	//echo var_dump($total);
 	
 	return $total;	
@@ -88,8 +88,8 @@ function qryTotalElementosT2(){
 	$fecha = mostrarFechaT2();
 	$tableFatiga = "tbFatiga";
 
-	$result = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=2;");
-	$total= mysql_fetch_array($result);
+	$consulta_contar_total_t2 = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=2;");
+	$total= mysql_fetch_array($consulta_contar_total_t2);
 	//echo var_dump($total);
 	
 	return $total;	
@@ -110,8 +110,8 @@ function qryTotalElementosT3(){
 	$fecha = mostrarFechaT3();
 	$tableFatiga = "tbFatiga";
 
-	$result = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=3;");
-	$total= mysql_fetch_array($result);
+	$consulta_contar_total_t3 = mysql_query("SELECT COUNT(*) from $tableFatiga WHERE fechaInicio LIKE '$fecha%' AND idTurno=3;");
+	$total= mysql_fetch_array($consulta_contar_total_t3);
 	//echo var_dump($total);
 	
 	return $total;	
@@ -123,27 +123,12 @@ function qryTotalElementosT3(){
 // Total de usuarios
 function qryTotalUsuarios(){
 	$tableUsuario = "tbUsuario";
-	$result = mysql_query("SELECT COUNT(*) from $tableUsuario;");
-	$totalUsuarios= mysql_fetch_array($result);
+	$consulta_total_elementos = mysql_query("SELECT COUNT(*) from $tableUsuario;");
+	$totalUsuarios= mysql_fetch_array($consulta_total_elementos);
 	//echo var_dump($total);
 	
 	return $totalUsuarios;	
 	mysql_close();
 
 }
-
-
-
-
-
-
-
-/*
-// Consulta Total Usuarios
-$totalUsuarios = qryTotalUsuarios();
-$imprimeUsuarios = obtenerTotalUsuarios($totalUsuarios);
-//echo var_dump($imprimeSector[0]);
-*/
-
-
 ?>

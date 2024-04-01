@@ -8,15 +8,21 @@
 <body>
 <?php
 
-$hostname = "localhost";
-$username = "fatiga";
-$password = "F4t1g4";
-$databaseName = "dbfatiga";
 
-$dbConnected = @mysql_connect($hostname,$username,$password);
-$dbSelected = @mysql_select_db($databaseName,$dbConnected);
+include('configurar.php');
+$dbConnected = @mysql_connect($SERVER=DB_SERVER,$USERNAME=DB_USERNAME,$PASSWORD=DB_PASSWORD);
+$dbSelected = @mysql_select_db($DB=DB_NAME,$dbConnected);
 
+// Establecer la conexión a la base de datos
+// $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
+// // Verificar si la conexión es exitosa
+// if ($link === false) {
+//     die("Error de conexión: " . mysqli_connect_error());
+// }else{
+// 	$dbSuccess= true;
+// 	echo 'Algo';
+// }
 
 $dbSuccess= true;
 
@@ -34,18 +40,18 @@ if ($dbConnected){
 	$dbSuccess = false;
 }
 
-if ($dbSuccess){
-	$tableQry = "tbUsuario";
-	$sqlQry = "SELECT nombre,usuario,clave,idNivel from ".$tableQry;
+// if ($dbSuccess){
+// 	$tableQry = "tbUsuario";
+// 	$sqlQry = "SELECT nombre,usuario,clave,idNivel from ".$tableQry;
 
-	if(mysql_query($sqlQry)){
-		//echo "Successfull Query";
-	}else{
-		echo "FAILED Query";
-	}
-}
+// 	if(mysql_query($sqlQry)){
+// 		//echo "Successfull Query";
+// 	}else{
+// 		echo "FAILED Query";
+// 	}
+// }
 
-
+// mysql_close();
 ?>
 
 
